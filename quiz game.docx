@@ -1,0 +1,616 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<process.h>
+int sco=0;
+void score(int x);
+void main()
+{
+ int n,i,read,x[30];
+ char name[20],cho,ch,name1[20];
+ FILE *fp;
+ clrscr();
+ textmode(BW40);         //used for text font
+ textcolor(10);          //used for text color
+ cprintf("\r\n\n\n\n\n\n\n\n\n\n\n               WELCOME TO\n");
+ cprintf("\r                QUIZMODO\n");
+ getch();
+ system("cls");          //used to clear the screen
+ abc:
+ sco=0;
+ for(i=0;i<30;i++)
+ x[i]=0;
+ textmode(MONO);         //used to change text mode
+ printf("\n\n\n\n\n\n\n                                 QUIZMODO");
+ printf("\n\n\n\n\n\n\n\t\t\t\t  1.PLAY\n\n\t\t\t\t  2.HIGHSCORE\n\n\t\t\t\t  3.INSTRUCTION\n\n\t\t\t\t  4.ABOUT\n\n\t\t\t\t  5.EXIT\n\n\n\n\n\n\t\t\t\t    ");
+ scanf("%d",&n);
+ system("cls");
+ switch(n)
+ {
+  case 1:                //for playing and entering the name in file
+  printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\tPLAYER ENTER YOUR FIRST NAME  :  ");
+  fflush(stdin);
+  gets(name);
+  system("cls");
+  fp=fopen("score.txt","a");
+  fprintf(fp,"%s",name);
+  putc(' ',fp);
+  fclose(fp);
+  printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\tLET'S THE GAME BEGINS");
+  getch();
+  system("cls");
+ while(1)
+  {
+   system("cls");       //questions starts from here
+   switch(rand() % 29)  //generates random no. for different cases
+   {
+    case 1:
+    if(x[1]==1)         //this code checks whether the question is repeated or
+    continue;             // not if repeated then skip the it
+    x[1]++;
+    printf("\n\n\n\n\n\nWhich of the following is a Palindrome number?");
+    printf("\n\nA.42042\t\tB.101010\n\nC.23232\t\tD.01234\n\t\t");
+    fflush(stdin);
+    cho=getchar();
+    if (cho=='C')
+    {
+     printf("\n\nCorrect!!!");
+     sco=sco+5;
+    }
+    else
+    {
+     printf("\n\nWrong!!!The correct answer is C 23232");
+     getch();
+     score(sco);                    //this function calculate the final score
+     goto xyz;                      //from here program control goes to continue the game
+    }
+    break;
+
+    case 2:
+	if(x[2]==1)
+    continue;
+    x[2]++;
+    printf("\n\n\n\n\n\nThe country with the highest environmental performance index is...");
+    printf("\n\nA.France\t\tB.Denmark\n\nC.Switzerland\t\tD.Finland\n\t\t");
+    fflush(stdin);
+    cho=getchar();
+    if (cho=='C')
+    {
+     printf("\n\nCorrect!!!");
+     sco=sco+5;
+    }
+    else
+    {
+     printf("\n\nWRONG!!!The correct answer is C Switzerand");
+     getch();
+     score(sco);
+     goto xyz;
+    }
+    break;
+
+    case 3:
+	if(x[3]==1)
+    continue;
+    x[3]++;
+    printf("\n\n\n\n\n\nWhich animal laughs like human being?");
+    printf("\n\nA.Polar Bear\t\tB.Hyena\n\nC.Donkey\t\tD.Chimpanzee\n\t\t");
+    fflush(stdin);
+    cho=getchar();
+    if (cho=='B')
+    {
+     printf("\n\nCorrect!!!");sco=sco+5;
+    }
+    else
+    {
+     printf("\n\nWrong!!! The correct answer is B.Hyena");
+     getch();
+     score(sco);
+     goto xyz;
+    }
+    break;
+
+    case 4:
+	if(x[4]==1)
+    continue;
+    x[4]++;
+    printf("\n\n\n\n\n\nWho was awarded the youngest player award in Fifa World Cup 2006?");
+    printf("\n\nA.Wayne Rooney\t\tB.Lucas Podolski\n\nC.Lionel Messi\t\tD.Christiano Ronaldo\n\t\t");
+    fflush(stdin);
+    cho=getchar();
+    if (cho=='B')
+    {
+     printf("\n\nCorrect!!!");sco=sco+5;
+    }
+     else
+     {
+      printf("\n\nWrong!!! The correct answer is B.Lucas Podolski");
+      getch();
+      score(sco);
+      goto xyz;
+     }
+     break;
+
+     case 5:
+	 if(x[5]==1)
+    continue;
+    x[5]++;
+     printf("\n\n\n\n\n\nWhich is the third highest mountain in the world?");
+     printf("\n\nA.Mt. K2\t\tB.Mt. Kanchanjungha\n\nC.Mt. Makalu\t\tD.Mt. Kilimanjaro\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='B')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is B.Mt. Kanchanjungha");
+     getch();
+     score(sco);
+     goto xyz;}
+     break;
+
+     case 6:
+	 if(x[6]==1)
+    continue;
+    x[6]++;
+     printf("\n\n\n\n\n\nWhat is the group of frogs known as?");
+     printf("\n\nA.Traffic\t\tB.Toddler\n\nC.Police\t\tD.Army\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='B' )
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is D.An Army");
+     getch();
+     score(sco);goto xyz;}
+     break;
+
+     case 7:
+	 if(x[7]==1)
+    continue;
+    x[7]++;
+     printf("\n\nWhat is the National Game of England?");
+     printf("\n\nA.Football\t\tB.Basketball\n\nC.Cricket\t\tD.Baseball\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='C')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else
+     {printf("\n\nWrong!!! The correct answer is C.Cricket");
+     getch();
+     score(sco);goto xyz;}
+     break;
+
+     case 8:
+	 if(x[8]==1)
+    continue;
+    x[8]++;
+     printf("\n\n\n\n\n\nStudy of Earthquake is called............,");
+     printf("\n\nA.Seismology\t\tB.Cosmology\n\nC.Orology\t\tD.Etimology\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is A.Seismology");
+     getch();
+     score(sco);
+     goto xyz;}
+     break;
+
+     case 9:
+	 if(x[9]==1)
+    continue;
+    x[9]++;
+     printf("\n\n\n\n\n\nAmong the top 10 highest peaks in the world, how many lie in Nepal? ");
+     printf("\n\nA.6\t\tB.7\n\nC.8\t\tD.9\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='C')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is C.8");
+     getch();
+     score(sco);goto xyz;}
+     break;
+
+     case 10:
+	 if(x[10]==1)
+    continue;
+    x[10]++;
+     printf("\n\n\n\n\n\nThe Laws of Electromagnetic Induction were given by?");
+     printf("\n\nA.Faraday\t\tB.Tesla\n\nC.Maxwell\t\tD.Coulomb\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else
+     {
+      printf("\n\nWrong!!! The correct answer is A.Faraday");
+      getch();
+      score(sco);goto xyz;
+     }break;
+
+     case 11:
+	 if(x[11]==1)
+    continue;
+    x[11]++;
+     printf("\n\n\n\n\n\nIn what unit is electric power measured?");
+     printf("\n\nA.Coulomb\t\tB.Watt\n\nC.Power\t\tD.Units\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='B')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is B.Power");
+     getch();
+     score(sco);goto xyz;}
+     break;
+
+     case 12:
+	 if(x[12]==1)
+    continue;
+    x[12]++;
+     printf("\n\n\n\n\n\nWhich element is found in Vitamin B12?");
+     printf("\n\nA.Zinc\t\tB.Cobalt\n\nC.Calcium\t\tD.Iron\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='B' )
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is B.Cobalt");
+     getch();
+     score(sco);goto xyz;}
+     break;
+
+     case 13:
+	 if(x[13]==1)
+    continue;
+    x[13]++;
+     printf("\n\n\n\n\n\nWhat is the National Name of Japan?");
+     printf("\n\nA.Polska\t\tB.Hellas\n\nC.Drukyul\t\tD.Nippon\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='D')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is D.Nippon");
+     getch();
+     score(sco);goto xyz;}
+     break;
+
+     case 14:
+	 if(x[14]==1)
+    continue;
+    x[14]++;
+     printf("\n\n\n\n\n\nHow many times a piece of paper can be folded at the most?");
+     printf("\n\nA.6\t\tB.7\n\nC.8\t\tD.Depends on the size of paper\n\t\t");
+     fflush(stdin);
+     cho=getchar();
+     if (cho=='B')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5; }
+     else{
+     printf("\n\nWrong!!! The correct answer is B.7");
+     getch();
+     score(sco);goto xyz;}
+     break;
+
+     case 15:
+	 if(x[15]==1)
+    continue;
+    x[15]++;
+     printf("\n\n\n\n\n\nWhat is the capital of Denmark?");
+     printf("\n\nA.Copenhagen\t\tB.Helsinki\n\nC.Ajax\t\tD.Galatasaray\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is A.Copenhagen");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 16:
+	 if(x[16]==1)
+    continue;
+    x[16]++;
+     printf("\n\n\n\n\n\nWhich is the longest River in the world?");
+     printf("\n\nA.Nile\t\tB.Koshi\n\nC.Ganga\t\tD.Amazon\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is A.Nile");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 17:
+	 if(x[17]==1)
+    continue;
+    x[17]++;
+     printf("\n\n\n\n\n\nWhat is the color of the Black Box in aeroplanes?");
+     printf("\n\nA.White\t\tB.Black\n\nC.Orange\t\tD.Red\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='C')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is C.Orange");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 18:
+	 if(x[18]==1)
+    continue;
+    x[18]++;
+     printf("\n\n\n\n\n\nWhich city is known at 'The City of Seven Hills'?");
+     printf("\n\nA.Rome\t\tB.Vactican City\n\nC.Madrid\t\tD.Berlin\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is A.Rome");
+     score(sco);goto xyz;}break;
+
+     case 19:
+	 if(x[19]==1)
+    continue;
+    x[19]++;
+     printf("\n\n\n\n\n\nName the country where there no mosquitoes are found?");
+     printf("\n\nA.Japan\t\tB.Italy\n\nC.Argentina\t\tD.France\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='D')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is D.France");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 20:
+	 if(x[20]==1)
+    continue;
+    x[20]++;
+     printf("\n\n\n\n\n\nWho is the author of 'Pulpasa Cafe'?");
+     printf("\n\nA.Narayan Wagle\t\tB.Lal Gopal Subedi\n\nC.B.P. Koirala\t\tD.Khagendra Sangraula\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is A.Narayan Wagle");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 21:
+	 if(x[21]==1)
+    continue;
+    x[21]++;
+     printf("\n\n\n\n\n\nWhich Blood Group is known as the Universal Recipient?");
+     printf("\n\nA.A\t\tB.AB\n\nC.B\t\tD.O\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='B')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is B.AB");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 22:
+	 if(x[22]==1)
+    continue;
+    x[22]++;
+     printf("\n\n\n\n\n\nWhat is the unit of measurement of distance between Stars?");
+     printf("\n\nA.Light Year\t\tB.Coulomb\n\nC.Nautical Mile\t\tD.Kilometer\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is A.Light Year");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 23:
+	 if(x[23]==1)
+    continue;
+    x[23]++;
+     printf("\n\n\n\n\n\nThe country famous for Samba Dance is........");
+     printf("\n\nA.Brazil\t\tB.Venezuela\n\nC.Nigeria\t\tD.Bolivia\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='A')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is A.Brazil");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 24:
+	 if(x[24]==1)
+    continue;
+    x[24]++;
+     printf("\n\n\n\n\n\nWind speed is measure by__________?");
+     printf("\n\nA.Lysimeter\t\tB.Air vane\n\nC.Hydrometer\t\tD.Anemometer\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='D')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is D.Anemometer");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 25:
+	 if(x[25]==1)
+    continue;
+    x[25]++;
+     printf("\n\n\n\n\n\nWhich city in the world is popularly known as The City of Temple?");
+     printf("\n\nA.Delhi\t\tB.Bhaktapur\n\nC.Kathmandu\t\tD.Agra\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='C')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is C.Kathmandu");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 26:
+	 if(x[26]==1)
+    continue;
+    x[26]++;
+     printf("\n\n\n\n\n\nWhich hardware was used in the First Generation Computer?");
+     printf("\n\nA.Transistor\t\tB.Valves\n\nC.I.C\t\tD.S.S.I\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='B')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is B.Valves");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 27:
+	 if(x[27]==1)
+    continue;
+    x[27]++;
+     printf("\n\n\n\n\n\nOzone plate is being destroyed regularly because of____ ?");
+     printf("\n\nA.L.P.G\t\tB.Nitrogen\n\nC.Methane\t\tD. C.F.C\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='D')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is D. C.F.C");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 28:
+	 if(x[28]==1)
+    continue;
+    x[28]++;
+     printf("\n\n\n\n\n\nWho won the Women's Australian Open Tennis in 2007?");
+     printf("\n\nA.Martina Hingis\t\tB.Maria Sarapova\n\nC.Kim Clijster\t\tD.Serena Williams\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='D')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is D.Serena Williams");
+     getch();
+     score(sco);goto xyz;}break;
+
+     case 29:
+	 if(x[29]==1)
+    continue;
+    x[29]++;
+     printf("\n\n\n\n\n\nWhich film was awarded the Best Motion Picture at Oscar in 2010?");
+     printf("\n\nA.The Secret in their Eyes\t\tB.Shutter Island\n\nC.The King's Speech\t\tD.The Reader\n\t\t");
+     fflush(stdin);cho=getchar();
+     if (cho=='C')
+     {
+      printf("\n\nCorrect!!!");sco=sco+5;
+     }
+     else{
+     printf("\n\nWrong!!! The correct answer is C.The King's Speech");
+     getch();
+     score(sco);goto xyz;}
+     break;
+    }                //switch close
+  }                  //while close
+  xyz:               //control come from wrong input of choice
+  printf("\n\n\n\n\n\t\t\t\tDO YOU WANT TO PLAY AGAIN\n\n\n\n\n\t\t\t\t   PRESS Y TO CONTINUE\t");
+  fflush(stdin);
+  scanf("%c",&ch);
+  if ((ch=='Y')||(ch=='y'))
+  {
+   goto abc;
+  }
+  break;
+
+  case 2:                              //shows the score of each player
+  fp=fopen("score.txt","r");
+  do
+  {
+   fscanf(fp,"%s",name1);
+   printf("\t\t\t%s\t\t",name1);
+   fscanf(fp,"%d",&read);
+   printf("%d\n",read);
+  }while(getc(fp)!=EOF);
+  fclose(fp);
+  getch();
+  goto abc;
+
+  case 3:   //shows the "INSTRUCTION" of the game
+  printf("\n\n\n\n\n\n\nTHE GAME IS VERY SIMPLE  FIRST OF ALL YOU HAVE TO ENTER YOUR NAME THEN GIVE THE ANSWER OF SIMPLE QUESTIONS AND SCORE AND CHECK THE AMOUNT YOU HAVE WON.YOU CAN ALSO CHECK THE SCORES OF OTHER PLAYERS ");
+  getch();
+  goto abc;
+
+  case 4:   //shows the "ABOUT" of the game
+  printf("\n\n\n\n\n\n\n\n\n\n\t\t\tTHIS PROGRAMME IS DEVELOPED BY\n\t\t\tTUSHAR CHAUDHARY & TARUN GUPTA \n\t\t\t  NO COPY RIGHT RESERVERED\n");
+  getch();
+  goto abc;
+
+  case 5:   //to terminate the game control
+  goto exit;
+
+  default:
+  printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t PLEASE ENTER CORRECT CHOICE");
+  goto abc;
+ }
+ exit:
+}
+void score(int x)
+{
+ FILE *fp;
+ if(x==0)
+ printf("\n\n\n\n\t\t\  t\tBETTER LUCK NEXT TIME");
+ else
+ {
+ int y=0;
+ y=2000*(x/5);
+ printf("\n\n\n\n..................................CONGRATULATIONS...............................");
+ printf("\n\n\n\n\t\t\t\t   YOUR SCORE IS\n\t\t\t\t\t%d",x);
+ printf("\n\n\n\n\n\n\n\n\t\t\tYOU HAVE WON\t\t%d RUPEES",y);
+ }
+ fp=fopen("score.txt","a");
+ fprintf(fp,"%d",x);          //WILL PUT THE SCORE OF PLAYER IN TO THE FILE SCORE
+ putc(' ',fp);
+ fclose(fp);
+}
